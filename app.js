@@ -17,7 +17,7 @@ device.init();
 app.use(express.json());
 
 app.get('/api/', function (req, res) {
-   res.send('PTZPROXYAPI is Ready');
+   res.send('Rest2OnVif is Ready');
 })
 
 app.post('/api/', function(req, res){
@@ -26,39 +26,14 @@ app.post('/api/', function(req, res){
    res.send(req.body);    // echo the result back
 });
 
-app.post('/api/ptzmove/', function(req, res){
-   console.log("Moving Camera");
-   console.log(req.body.x+":"+req.body.y+":"+req.body.z+"."+req.body.timeout);
-   device.ptzMove({
-      'speed': {
-        x: parseFloat(req.body.x), // Speed of pan (in the range of -1.0 to 1.0)
-        y: parseFloat(req.body.y), // Speed of tilt (in the range of -1.0 to 1.0)
-        z: parseFloat(req.body.z)  // Speed of zoom (in the range of -1.0 to 1.0)
-      },
-      'timeout': parseFloat(req.body.timeout) // seconds
-   });
+var glob = require( 'glob' )
+  , path = require( 'path' );
 
-   res.send("Moving Camera");
-
-});
-
-app.post('/api/gotopreset/', function(req, res){
-   console.log("Moving Camera to Preset");
-   console.log(req.body.profiletoken+":"+req.body.presettoken);
-   
-   let params = {
-     'ProfileToken': req.body.profiletoken,
-     'PresetToken' : req.body.presettoken,
-     'Speed'       : {'x': config.defaultxspeed, 'y': config.defaultyspeed, 'z': config.defaultzspeed}
-   };
-
-   device.services.ptz.gotoPreset(params);
-
-   res.send("Moving Camera to Preset");
-
+glob.sync( './routes/**/*.js' ).forEach( function( file ) {
+  require( path.resolve( file ) );
 });
 
 app.listen(config.port,config.host);
 
-console.log("PTZ Proxy API is Ready and running on: "+config.host+":"+config.port);
+console.log("Rest2OnVif is Ready and running on: "+config.host+":"+config.port);
 
