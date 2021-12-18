@@ -30,7 +30,8 @@ var glob = require( 'glob' )
   , path = require( 'path' );
 
 glob.sync( './routes/*.js' ).forEach( function( file ) {
-  require( path.resolve( file ) );
+   console.log(file);
+   require( path.resolve( file ) );
 });
 
 app.listen(config.port,config.host);
