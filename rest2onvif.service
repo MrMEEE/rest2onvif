@@ -1,0 +1,10 @@
+[Unit]
+Description=Rest2Onvif service
+After=network.target
+Type=simple
+User=ng
+ExecStart=/usr/local/bin/rest2onvif
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
