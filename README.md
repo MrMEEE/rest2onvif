@@ -8,6 +8,7 @@ Implemented functions:
 * /api/gotopreset
 * /api/ptzmove
 * /api/setpreset
+* /api/ptzstop
 
 # Install
 ```

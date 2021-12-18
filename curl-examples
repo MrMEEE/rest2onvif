@@ -7,3 +7,6 @@ curl -X POST http://localhost:8081/api/gotopreset/ -H 'Content-Type: application
 
 # PTZ setPreset
 curl -X POST http://localhost:8081/api/setpreset/ -H 'Content-Type: application/json' -d '{"presettoken":"3","profiletoken":"Profile_1"}'
+
+# PTZ ptzStop
+curl -X POST http://localhost:8081/api/ptzstop/
