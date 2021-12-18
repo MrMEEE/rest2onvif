@@ -30,7 +30,7 @@ var glob = require( 'glob' )
   , fs = require('fs');
 
 glob.sync( './routes/*.js' ).forEach( function( file ) {
-   console.log(file);
+   console.log("Loading operation: "+file);
    eval(fs.readFileSync(file)+'');
 });
 
