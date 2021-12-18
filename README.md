@@ -7,6 +7,7 @@ Implemented functions:
 
 * /api/gotopreset
 * /api/ptzmove
+* /api/setpreset
 
 # Install
 ```

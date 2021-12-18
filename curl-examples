@@ -1,6 +1,9 @@
-# PTZ Move
+# PTZ ptzMove
 
 curl -X POST http://localhost:8081/api/ptzmove/ -H 'Content-Type: application/json' -d '{"x":"0.4","y":"0","z":"0","timeout":"2"}'
 
-# PTZ Gotopreset
+# PTZ gotoPreset
 curl -X POST http://localhost:8081/api/gotopreset/ -H 'Content-Type: application/json' -d '{"presettoken":"1","profiletoken":"Profile_1"}'
+
+# PTZ setPreset
+curl -X POST http://localhost:8081/api/setpreset/ -H 'Content-Type: application/json' -d '{"presettoken":"3","profiletoken":"Profile_1"}'
