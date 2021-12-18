@@ -2,8 +2,19 @@
 
 var express = require('express');
 var app = express();
-var config = require('./config');
+var glob = require('glob');
+var fs = require('fs');
+
 const onvif = require('node-onvif');
+
+if (fs.existsSync(__dirname+'/config.js')) {
+   var config = require(__dirname+'/config');
+}else if (fs.existsSync('/etc/rest2onvif/config.js')){
+   var config = require('/etc/rest2onvif/config');
+}else{
+   console.log("Couldn't locate configuration file")
+   process.exit(1)
+}
 
 // Create an OnvifDevice object
 let device = new onvif.OnvifDevice({
@@ -25,9 +36,6 @@ app.post('/api/', function(req, res){
    console.log(req.body.title);
    res.send(req.body);    // echo the result back
 });
-
-var glob = require( 'glob' )
-  , fs = require('fs');
 
 glob.sync( './routes/*.js' ).forEach( function( file ) {
    console.log("Loading operation: "+file);
