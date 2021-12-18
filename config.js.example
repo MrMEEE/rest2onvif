@@ -1,0 +1,12 @@
+var config = {};
+
+config.address = '10.0.0.1:80/onvif/device_service';
+config.user = 'admin';
+config.pass = 'changeme';
+config.port = '8081';
+config.host = 'localhost';
+config.defaultxspeed = 4;
+config.defaultyspeed = 4;
+config.defaultzspeed = 4;
+
+module.exports = config;
