@@ -27,11 +27,11 @@ app.post('/api/', function(req, res){
 });
 
 var glob = require( 'glob' )
-  , path = require( 'path' );
+  , fs = require('fs');
 
 glob.sync( './routes/*.js' ).forEach( function( file ) {
    console.log(file);
-   require( path.resolve( file ) );
+   eval(fs.readFileSync(file)+'');
 });
 
 app.listen(config.port,config.host);
