@@ -17,15 +17,14 @@ if (fs.existsSync(__dirname+'/config.js')) {
 }
 
 function requestRetry() {
-  let devicetemp = new onvif.OnvifDevice({address: config.address, user : config.user, pass : config.pass});
+  global.device = new onvif.OnvifDevice({address: config.address, user : config.user, pass : config.pass});
   console.log("Start");
   function run() {
 	  console.log("Running");
-          devicetemp.init().then((info) => {
+          global.device.init().then((info) => {
           // Show the detailed information of the device.
              console.log(JSON.stringify(info, null, '  '));
              console.log("Connected");
-             return devicetemp;
 
           }).catch((error) => {
              console.error(error);
@@ -38,8 +37,7 @@ function requestRetry() {
 
 }
 
-
-device = requestRetry(); 
+requestRetry(); 
 
 app.use(express.json());
 
