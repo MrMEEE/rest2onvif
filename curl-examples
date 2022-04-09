@@ -10,3 +10,10 @@ curl -X POST http://localhost:8081/api/setpreset/ -H 'Content-Type: application/
 
 # PTZ ptzStop
 curl -X POST http://localhost:8081/api/ptzstop/
+
+# PTZ getPresets
+curl -X POST http://localhost:8081/api/getpresets/ -H 'Content-Type: application/json' -d '{"profiletoken":"Profile_1"}'
+
+curl -X POST http://localhost:8081/api/gotopreset/ -H 'Content-Type: application/json' -d '{"presettoken":"1","profiletoken":"Profile_1"}'
+
+curl -X POST http://localhost:8081/api/gotopreset/ -H 'Content-Type: application/json' -d '{"presettoken":"1","profiletoken":"MediaProfile00000"}'

@@ -5,6 +5,7 @@ app.post('/api/setpreset/', function(req, res){
    let params = {
      'ProfileToken': req.body.profiletoken,
      'PresetToken' : req.body.presettoken,
+     'Speed': 0
    };
 
    device.services.ptz.setPreset(params);
