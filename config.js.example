@@ -5,8 +5,8 @@ config.user = 'admin';
 config.pass = 'changeme';
 config.port = '8081';
 config.host = 'localhost';
-config.defaultxspeed = 4;
-config.defaultyspeed = 4;
-config.defaultzspeed = 4;
+config.defaultxspeed = 1;
+config.defaultyspeed = 1;
+config.defaultzspeed = 1;
 
 module.exports = config;
