@@ -1,6 +1,6 @@
 {
   "name": "rest2onvif",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": "./app.js",
   "repository": {
     "type": "git",
