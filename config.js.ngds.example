@@ -1,0 +1,17 @@
+var config = {};
+
+const fs = require('fs');
+
+let rawdata = fs.readFileSync('/etc/ngds/camconfig');
+let camconfig = JSON.parse(rawdata);
+
+config.address = camconfig.host + ':' + camconfig.vifport + '/onvif/device_service';
+config.user = camconfig.user;
+config.pass = camconfig.pass;
+config.port = camconfig.rest2onvifport;
+config.host = 'localhost';
+config.defaultxspeed = 1;
+config.defaultyspeed = 1;
+config.defaultzspeed = 1;
+
+module.exports = config;

@@ -15,6 +15,10 @@ if (fs.existsSync(__dirname+'/config.js')) {
    console.log("Couldn't locate configuration file")
    process.exit(1)
 }
+if (fs.existsSync('/etc/ngds/camconfig')){
+	let rawdata = fs.readFileSync('/etc/ngds/camconfig');
+	let camconfig = JSON.parse(rawdata);
+}
 
 function requestRetry() {
   global.device = new onvif.OnvifDevice({address: config.address, user : config.user, pass : config.pass});

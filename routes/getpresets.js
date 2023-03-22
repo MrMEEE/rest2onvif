@@ -3,7 +3,7 @@ app.post('/api/getpresets/', function(req, res){
    console.log(req.body.profiletoken);
 
    let params = {
-     'ProfileToken': req.body.profiletoken,
+     'ProfileToken': camconfig.profile,
    };
 
    device.services.ptz.getPresets(params).then((result) => {

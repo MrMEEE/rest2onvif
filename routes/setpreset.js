@@ -3,7 +3,8 @@ app.post('/api/setpreset/', function(req, res){
    console.log(req.body.profiletoken+":"+req.body.presettoken);
 
    let params = {
-     'ProfileToken': req.body.profiletoken,
+//     'ProfileToken': req.body.profiletoken,
+     'ProfileToken': camconfig.profile,
      'PresetToken' : req.body.presettoken,
      'Speed': 0
    };
